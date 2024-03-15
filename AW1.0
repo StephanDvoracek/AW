@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datenanzeige mit Datei-Upload</title>
+    <title>Datenanzeige</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -55,14 +55,18 @@
     </table>
 </div>
 <script>
-const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-const dataUrl = 'https://drive.google.com/uc?export=view&id=1HD0EDGEr7XoJTV6CfxN9xWjTrVbQ4rwe'; // Ihre Google Drive File ID
+document.addEventListener('DOMContentLoaded', function() {
+    loadData();
+});
 
-function loadData(url) {
-    fetch(proxyUrl + url)
+function loadData() {
+    var scriptUrl = 'https://script.google.com/macros/s/AKfycbykIyg0_xNts1NG-uT_cX6i1M8X4bpY9pTxMADsi_QFTJZgXORVrWjnxjYzm5tBhcWDpQ/exec';
+    fetch(scriptUrl)
         .then(response => response.text())
         .then(csv => {
-            var rows = csv.split('\n').map(row => row.split(','));
+            var rows = csv.split('\n').map(function(row) {
+                return row.split(',');
+            });
             updateTable(rows);
         }).catch(error => {
             console.error('Fehler beim Laden der Daten:', error);
@@ -73,9 +77,9 @@ function updateTable(rows) {
     var tbody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
     tbody.innerHTML = '';
     rows.forEach(function(row, index) {
-        if (index === 0) return; // Kopfzeile überspringen
+        if (index === 0) return; // Kopfzeile überspringen, wenn gewünscht
         var tr = document.createElement('tr');
-        row.forEach(function(cell, cellIndex) {
+        row.forEach(function(cell) {
             var td = document.createElement('td');
             td.textContent = cell;
             tr.appendChild(td);
@@ -83,10 +87,6 @@ function updateTable(rows) {
         tbody.appendChild(tr);
     });
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-    loadData(dataUrl);
-});
 </script>
 </body>
 </html>
