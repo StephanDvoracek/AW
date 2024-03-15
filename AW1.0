@@ -1,93 +1,3588 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Datenanzeige</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #333;
-            color: #fff;
-            margin: 0;
-            padding: 20px;
-        }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            background: #424242;
-            border-radius: 8px;
-        }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        th, td {
-            text-align: left;
-            padding: 8px;
-            border-bottom: 1px solid #ddd;
-            color: #fff;
-        }
-        th {
-            background-color: #555;
-        }
-        tr:nth-child(even) {background-color: #393939;}
-    </style>
-</head>
-<body>
-<div class="container">
-    <h2>Datenanzeige</h2>
-    <table id="dataTable">
-        <thead>
-            <tr>
-                <th>Artikelnummer</th>
-                <th>Bezeichnung</th>
-                <th>Lagerstand</th>
-                <th>Einheit</th>
-                <th>D-Preis</th>
-                <th>VPE</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Datenzeilen werden hier eingefügt -->
-        </tbody>
-    </table>
-</div>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    loadData();
-});
-
-function loadData() {
-    var scriptUrl = 'https://script.google.com/macros/s/AKfycbziL0kcBkkZGcwfUb3k6iTgRLnWI9XGfZXc9kNz2ogYJGD9jbQjefVYQQwzS-3W73e5jw/exec';
-    fetch(scriptUrl)
-        .then(response => response.text())
-        .then(csv => {
-            var rows = csv.split('\n').map(function(row) {
-                return row.split(',');
-            });
-            updateTable(rows);
-        }).catch(error => {
-            console.error('Fehler beim Laden der Daten:', error);
-        });
-}
-
-function updateTable(rows) {
-    var tbody = document.getElementById('dataTable').getElementsByTagName('tbody')[0];
-    tbody.innerHTML = '';
-    rows.forEach(function(row, index) {
-        if (index === 0) return; // Kopfzeile überspringen, wenn gewünscht
-        var tr = document.createElement('tr');
-        row.forEach(function(cell) {
-            var td = document.createElement('td');
-            td.textContent = cell;
-            tr.appendChild(td);
-        });
-        tbody.appendChild(tr);
-    });
-}
-</script>
-</body>
-</html>
-
+[
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36100018880;Lithium Akku 018880;13;Stk.;€43",
+    "__parsed_extra": [
+      "70;€568",
+      "12;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36100018881;Ladegerät 018881;2;Stk.;€39",
+    "__parsed_extra": [
+      "26;€78",
+      "52;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36100057549;Pulsa Nagel CS-40;2;ktn.;€ -;€ -;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36100142201;IMPULSE-PACK IM45GN RS2",
+    "__parsed_extra": [
+      "8x25;134;ktn.;€38",
+      "77;€5.195",
+      "18;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36100142207;IMPULSE-PACK IM45GN RS2",
+    "__parsed_extra": [
+      "5x35;30;ktn.;€38",
+      "05;€1.141",
+      "50;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36102404252;Paslode S200S16.2;1;Stk.;€378",
+    "__parsed_extra": [
+      "50;€378",
+      "50;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36105300899;Paslode FN 1850.2 Einzel;9;Stk.;€138",
+    "__parsed_extra": [
+      "00;€1.242",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36110010332;Paslode IM 90Xi;3;Stk.;€500",
+    "__parsed_extra": [
+      "00;€1.500",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36111500705;Paslode PSN 100.1;5;Stk.;€410",
+    "__parsed_extra": [
+      "00;€2.050",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36111501000;Paslode PSN 90 Einzel;5;Stk.;€328",
+    "__parsed_extra": [
+      "00;€1.640",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36116413330;Paslode IM 50 F18 Lithium;1;Stk.;€470",
+    "__parsed_extra": [
+      "00;€470",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36116900381;Paslode IM 350+;2;Stk.;€450",
+    "__parsed_extra": [
+      "00;€900",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36128001006;Spezialöl 1L;89;Stk.;€6",
+    "__parsed_extra": [
+      "72;€597",
+      "71;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36128101200;Kleinnebelöler;1;Stk.;€43",
+    "__parsed_extra": [
+      "00;€43",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36128115251;Reinigungsspray für Impulse;1;Stk.;€15",
+    "__parsed_extra": [
+      "60;€15",
+      "60;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36128300346;Frisbee 2er-Pack;230;Stk.;€19",
+    "__parsed_extra": [
+      "20;€4.416",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36128394995;Mini-Brennstoff gelb;60;Stk.;€8",
+    "__parsed_extra": [
+      "05;€483",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36128402305;Brennstoff pink IM 350/90;110;Stk.;€10",
+    "__parsed_extra": [
+      "05;€1.105",
+      "50;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36128402306;IM 90 i fuell cell lose;2;Stk.;€23",
+    "__parsed_extra": [
+      "30;€46",
+      "60;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36128404717;Akku Oval für IM 350/90 CTQ;4;Stk.;€41",
+    "__parsed_extra": [
+      "70;€166",
+      "80;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36132152000;KLAMMERN SZ16 50 mm cnk;280;%OST;€3",
+    "__parsed_extra": [
+      "99;€1.117",
+      "20;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36133001825;STIFTE F 18-25MM;100;%OST;€0",
+    "__parsed_extra": [
+      "99;€98",
+      "89;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36133001830;STIFTE F 18-30MM;45;%OST;€1",
+    "__parsed_extra": [
+      "01;€45",
+      "59;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36133008006;KLAMMERN 80-06 MM;40;%OST;€0",
+    "__parsed_extra": [
+      "21;€8",
+      "40;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36133008008;KLAMMERN 80-08 MM;150;%OST;€0",
+    "__parsed_extra": [
+      "19;€28",
+      "13;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36133008012;KLAMMERN 80-12 MM;300;%OST;€0",
+    "__parsed_extra": [
+      "28;€84",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36133008014;KLAMMERN 80-14 MM;80;%OST;€0",
+    "__parsed_extra": [
+      "37;€29",
+      "60;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36133008016;KLAMMERN 80-16 MM;120;%OST;€0",
+    "__parsed_extra": [
+      "34;€40",
+      "69;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36133009015;KLAMMERN 90-15 MM;80;%OST;€0",
+    "__parsed_extra": [
+      "73;€58",
+      "44;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36133009020;KLAMMERN 90-20 MM;10;%OST;€0",
+    "__parsed_extra": [
+      "88;€8",
+      "80;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36133009025;KLAMMERN 90-25 MM;30;%OST;€1",
+    "__parsed_extra": [
+      "09;€32",
+      "75;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36133009030;KLAMMERN 90-30 MM;80;%OST;€1",
+    "__parsed_extra": [
+      "28;€102",
+      "40;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36133009032;KLAMMERN 90-32 MM;40;%OST;€1",
+    "__parsed_extra": [
+      "43;€57",
+      "20;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36133009035;KLAMMERN 90-35 MM;1 120",
+    "__parsed_extra": [
+      "00;%OST;€1",
+      "55;€1.736",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36133009040;KLAMMERN 90-40 MM;80;%OST;€1",
+    "__parsed_extra": [
+      "76;€140",
+      "40;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36135104000;STIFTE F 16 30 mm;12",
+    "__parsed_extra": [
+      "5;%OST;€1",
+      "71;€21",
+      "38;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36135110000;STIFTE F 16 50 mm;12",
+    "__parsed_extra": [
+      "5;%OST;€2",
+      "42;€30",
+      "25;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36139102963;PASLODE-RN-NÄGEL 2",
+    "__parsed_extra": [
+      "8X63;183",
+      "75;%OST;€10",
+      "15;€1.864",
+      "20;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36139502951;BM-D-Kopf 34° RN 2",
+    "__parsed_extra": [
+      "8X51 galv;1 992",
+      "00;%OST;€6",
+      "19;€12.330",
+      "48;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36143103180;PASLODE-RN-NÄGEL 3.1X80;705;%OST;€11",
+    "__parsed_extra": [
+      "71;€8.253",
+      "27;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36143103190;PASLODE-RN-NÄGEL 3.1X90;1 137",
+    "__parsed_extra": [
+      "50;%OST;€17",
+      "72;€20.151",
+      "92;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36143302970;Paslode RS Nägel 2",
+    "__parsed_extra": [
+      "8x70;105;%OST;€11",
+      "25;€1.181",
+      "25;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36144138120;PASLODE-RN-NÄGEL 3.8X120;64",
+    "__parsed_extra": [
+      "96;%OST;€31",
+      "60;€2.052",
+      "74;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36144138130;PASLODE-RN-NÄGEL 3.8X130;184",
+    "__parsed_extra": [
+      "8;%OST;€24",
+      "00;€4.435",
+      "20;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36144146145;PASLODE-RN-NÄGEL 4.6X145;29",
+    "__parsed_extra": [
+      "25;%OST;€56",
+      "76;€1.660",
+      "23;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36144148160;PASLODE-RN-NÄGEL 4.6X160;81",
+    "__parsed_extra": [
+      "9;%OST;€57",
+      "49;€4.708",
+      "57;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36190000200;Schlauchklemme 6-16 mm M0200;6;Stk.;€2",
+    "__parsed_extra": [
+      "72;€16",
+      "32;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "3619000CN45;RGN CN45 Coilnagler;2;Stk.;€105",
+    "__parsed_extra": [
+      "00;€210",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "3619000CN50;RGN CN50 Haftennagler;3;Stk.;€145",
+    "__parsed_extra": [
+      "00;€435",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36190018607;Paslode IM 45 GN LI Haften;16;Stk.;€449",
+    "__parsed_extra": [
+      "99;€7.199",
+      "88;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36190250800;Verschlusskupplung PB 35 bar;7;Stk.;€18",
+    "__parsed_extra": [
+      "48;€129",
+      "36;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36202010100;KLEBER/TEC-BOND 342/43;20;kg;€16",
+    "__parsed_extra": [
+      "61;€332",
+      "20;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36204001943;KLEBER/TEC-BOND 1942/12;30;kg;€17",
+    "__parsed_extra": [
+      "42;€522",
+      "60;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500000064;Paslode CNP 65.1;3;Stk.;€376",
+    "__parsed_extra": [
+      "00;€1.128",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500000170;NAGELGERÄT MAX CN 70;21;Stk.;€259",
+    "__parsed_extra": [
+      "00;€5.439",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500000980;NAGELGERÄT MAX CN 890S;13;Stk.;€357",
+    "__parsed_extra": [
+      "51;€4.647",
+      "60;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500000BS2;Ankernagler KA2 40-60mm 34;10;Stk.;€140",
+    "__parsed_extra": [
+      "50;€1.405",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "3650000HA35;TJEP HA-35 Haftennagler;1;Stk.;€320",
+    "__parsed_extra": [
+      "00;€320",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500012545;CON-MEGACOIL RS 25X45 CHCH;777",
+    "__parsed_extra": [
+      "6;%OST;€5",
+      "12;€3.980",
+      "04;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500046160;BM-RN 4",
+    "__parsed_extra": [
+      "6x160 PLAST 20°;59",
+      "4;%OST;€23",
+      "80;€1.413",
+      "72;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500098272;MAX AKHL 1260E Einzelgerät;1;Stk.;€950",
+    "__parsed_extra": [
+      "00;€950",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500100181;TJEP GRF Nagler 34/100HP lang;1;Stk.;€399",
+    "__parsed_extra": [
+      "00;€399",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500100189;Makita AN711 H HP Coilnagler;3;Stk.;€325",
+    "__parsed_extra": [
+      "00;€975",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500100195;Makita AN 250 HC HP Betonnagler;6;Stk.;€249",
+    "__parsed_extra": [
+      "00;€1.494",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500100199;Makita AN911 H HP;1;Stk.;€238",
+    "__parsed_extra": [
+      "89;€238",
+      "89;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500106095;TJEP HD Schlauchtrommel 30 m;6;Stk.;€150",
+    "__parsed_extra": [
+      "00;€900",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500106096;TJEP Schlauchtrommel 30 m;9;Stk.;€60",
+    "__parsed_extra": [
+      "00;€540",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500106258;Tjep Schnellverschlusskupplung 106258;1;Stk.;€5",
+    "__parsed_extra": [
+      "20;€5",
+      "20;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500106271;Tjep Schlauchklemme 106271;4;Stk.;€1",
+    "__parsed_extra": [
+      "60;€6",
+      "40;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500123081;MAX Pressure reducer;3;Stk.;€79",
+    "__parsed_extra": [
+      "00;€237",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500123090;MAX Schlauchtrommel HD 30m;2;Stk.;€154",
+    "__parsed_extra": [
+      "17;€308",
+      "33;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500123680;Reparaturset Female 123680;5;Stk.;€23",
+    "__parsed_extra": [
+      "98;€119",
+      "90;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500123681;Reparaturset Male 123681;6;Stk.;€7",
+    "__parsed_extra": [
+      "68;€46",
+      "08;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500152830;0°Haften-Nägel 2",
+    "__parsed_extra": [
+      "8/3",
+      "1x25 V2A 1.4301 1875/Ktn;113;ktn.;€26",
+      "72;€3.019",
+      "36;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500153173;Preb.Coilnägel 3",
+    "__parsed_extra": [
+      "1x70 bk;110",
+      "4;%OST;€4",
+      "49;€495",
+      "70;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500834563;Tjep GR 28/63 Rille verzinkt;59",
+    "__parsed_extra": [
+      "8;Stk.;€5",
+      "75;€343",
+      "85;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500834875;Tjep GR 28/75 Rille fvz;12;%OST;€10",
+    "__parsed_extra": [
+      "50;€126",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500836265;Tjep CN 25/65 Rille blank;288;%OST;€2",
+    "__parsed_extra": [
+      "90;€835",
+      "20;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500839811;TJEP PC25/30 RING HAFTE V2A;1 278",
+    "__parsed_extra": [
+      "00;%OST;€14",
+      "99;€19.157",
+      "22;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36500938130;BM-COILNÄGEL RN 3",
+    "__parsed_extra": [
+      "8x130 16°;241",
+      "92;%OST;€13",
+      "50;€3.265",
+      "92;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36501000111;HEFTHAMMER G 11;119;Stk.;€16",
+    "__parsed_extra": [
+      "00;€1.904",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36502504503;DF-SCHüKO-NÄGEL RS2",
+    "__parsed_extra": [
+      "5X45P;526",
+      "5;%OST;€6",
+      "10;€3.211",
+      "65;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36505001820;STIFTE F 18-20MM;90;%OST;€1",
+    "__parsed_extra": [
+      "05;€94",
+      "50;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36505001840;STIFTE F 18-40MM;35;%OST;€1",
+    "__parsed_extra": [
+      "24;€43",
+      "40;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36505001845;STIFTE F 18-45MM;80;%OST;€1",
+    "__parsed_extra": [
+      "35;€108",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36505001850;STIFTE F 18-50MM;10;%OST;€1",
+    "__parsed_extra": [
+      "51;€15",
+      "12;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36507000746;KLAMMERN 745 Z CNK;90;%OST;€3",
+    "__parsed_extra": [
+      "40;€306",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36507000752;KLAMMERN 750Z nk ETA;600;%OST;€3",
+    "__parsed_extra": [
+      "50;€2.100",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36507000764;KLAMMERN 764 Z CNK;595;%OST;€4",
+    "__parsed_extra": [
+      "80;€2.856",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36510004050;BM-Ankernägel RS 40x50 AK34 G12;116;%OST;€10",
+    "__parsed_extra": [
+      "50;€1.218",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36510224061;BM-Ankernägel RS40x60 Plast AK34;124;%OST;€12",
+    "__parsed_extra": [
+      "00;€1.488",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36510338130;C-COILNÄGEL RN 3",
+    "__parsed_extra": [
+      "8x130 16°;17",
+      "28;%OST;€23",
+      "60;€407",
+      "81;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36510502868;BM-COIL RS 2",
+    "__parsed_extra": [
+      "8x65 16° V2A;78;%OST;€21",
+      "00;€1.638",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36511224045;Simpson AN RS40x60 Pl AK25;7;%OST;€19",
+    "__parsed_extra": [
+      "80;€138",
+      "60;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36512100696;Bea Coil Nagler DC/90-903C;2;Stk.;€344",
+    "__parsed_extra": [
+      "00;€688",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "3651890DBCL;Hikoki NR1890DBC;1;Stk.;€550",
+    "__parsed_extra": [
+      "00;€550",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36528000084;NIPPEL 3/8Z - AUSSEN1/4Z;26;Stk.;€2",
+    "__parsed_extra": [
+      "44;€63",
+      "42;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36528910001;\"EURO-Stahl-Nippel 1/4\"\"\";29;Stk.;€3",
+    "__parsed_extra": [
+      "28;€95",
+      "12;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36531501000;\"Klammern A 11 3/8\"\"\";4 200",
+    "__parsed_extra": [
+      "00;%OST;€0",
+      "30;€1.260",
+      "46;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36560002870;BM-D-Kopf 34° RN 2",
+    "__parsed_extra": [
+      "8x70;798;%OST;€5",
+      "47;€4.364",
+      "71;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36560003490;BM-D-Kopf 34° RN 3",
+    "__parsed_extra": [
+      "4x90;486",
+      "7;%OST;€9",
+      "30;€4.526",
+      "31;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36560112864;BM-D-Kopf 34° RS 2",
+    "__parsed_extra": [
+      "8x75 12 my galv;240;%OST;€6",
+      "95;€1.668",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36561002870;BM-D-Kopf 34° RS 2",
+    "__parsed_extra": [
+      "8x70;245;%OST;€5",
+      "45;€1.335",
+      "25;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36561003170;BM-D-Kopf 34° RS 3",
+    "__parsed_extra": [
+      "1x70;188;%OST;€6",
+      "30;€1.184",
+      "40;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36561003180;BM-D-Kopf 34° RS 3",
+    "__parsed_extra": [
+      "1/3",
+      "4x80;196;%OST;€6",
+      "90;€1.352",
+      "40;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36561112870;BM 34° RS2",
+    "__parsed_extra": [
+      "8/3",
+      "1x70 gal 12my;220;%OST;€6",
+      "90;€1.518",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36562003192;BM-D-Kopf 34° RS 3",
+    "__parsed_extra": [
+      "1/3",
+      "4x90 12my galv;147;%OST;€9",
+      "80;€1.440",
+      "60;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36562112870;BM 34° RN 2",
+    "__parsed_extra": [
+      "8x70 gal 12my;294;%OST;€6",
+      "60;€1.940",
+      "40;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "3",
+    "__parsed_extra": [
+      "6566E+11;BM-RN 4",
+      "6x145 PLAST 20°;161",
+      "7;%OST;€21",
+      "75;€3.516",
+      "98;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "365R130957E;Streifennagler R20/130-1303E;4;Stk.;€401",
+    "__parsed_extra": [
+      "25;€1.605",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36600006040;PN 6040 Kontakt;3;Stk.;€196",
+    "__parsed_extra": [
+      "67;€590",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36600048023;Klammern BS 29085 A2;24",
+    "__parsed_extra": [
+      "96;%OST;€22",
+      "00;€549",
+      "12;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36600048043;Klammer WP100CRFHA-ETA;76",
+    "__parsed_extra": [
+      "8;%OST;€27",
+      "00;€2.073",
+      "60;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36600148004;Klammern BS 29130 A2;71",
+    "__parsed_extra": [
+      "05;%OST;€39",
+      "00;€2.770",
+      "95;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36600505694;RNC 50M.2;3;Stk.;€380",
+    "__parsed_extra": [
+      "00;€1.140",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36600574512;PN 765 Kontakt;7;Stk.;€295",
+    "__parsed_extra": [
+      "00;€2.065",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36600575596;RNC 90 Z Kontaktauslösung;8;Stk.;€370",
+    "__parsed_extra": [
+      "00;€2.960",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36700000003;AW RNC 2",
+    "__parsed_extra": [
+      "5/2",
+      "8x60 Rille blank;2 205",
+      "00;%OST;€3",
+      "10;€6.835",
+      "50;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36700000005;AW RNC 2",
+    "__parsed_extra": [
+      "8x70 Glatt blank;1 105",
+      "00;%OST;€4",
+      "11;€4.542",
+      "67;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36700000007;AW RNC 3",
+    "__parsed_extra": [
+      "1x90 Glatt blank;324;%OST;€6",
+      "10;€1.976",
+      "40;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36700000008;AW RNC 2",
+    "__parsed_extra": [
+      "8/3",
+      "1x70 Rille blank;30;%OST;€3",
+      "99;€119",
+      "70;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36700000013;AW RNC 2",
+    "__parsed_extra": [
+      "5/2",
+      "8x65 Rille 12my;315;%OST;€3",
+      "82;€1.203",
+      "30;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36700000017;AW RNC 3",
+    "__parsed_extra": [
+      "1/3",
+      "4x90 Rille 12my;40;%OST;€8",
+      "25;€330",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36700000019;AW RNC 3",
+    "__parsed_extra": [
+      "1x80 Glatt 12my;157",
+      "5;%OST;€6",
+      "89;€1.085",
+      "18;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36700000020;AW RNC 3",
+    "__parsed_extra": [
+      "1x90 Glatt 12my;348;%OST;€6",
+      "93;€2.409",
+      "91;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36700000023;AW RNC 2",
+    "__parsed_extra": [
+      "1/2",
+      "3x38 Rille blank konisch;392;%OST;€1",
+      "50;€588",
+      "00;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36700000036;AW RNC 2",
+    "__parsed_extra": [
+      "1/2",
+      "3x32 Rille blank N55;588;%OST;€1",
+      "29;€758",
+      "52;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36700000037;AW-Haftennägel RS 2",
+    "__parsed_extra": [
+      "5x25 V2A;32",
+      "4;%OST;€8",
+      "37;€271",
+      "06;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36700000036;AW RNC 2",
+    "__parsed_extra": [
+      "1/2",
+      "3x32 Rille blank N55;588;%OST;1",
+      "29;758",
+      "52;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": "36700000037;AW-Haftennägel RS 2",
+    "__parsed_extra": [
+      "5x25 V2A;36;%OST;10;360;;;;;;;;;;;;;;;;;;"
+    ]
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  },
+  {
+    "Artikel;Bezeichnung;lagernd;Einh;D-Preis;Lagerwert;VPE;;;;;;;;;;;;;;;;;": ";;;;;;;;;;;;;;;;;;;;;;;"
+  }
+]
