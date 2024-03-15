@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadData() {
-    var scriptUrl = 'https://script.google.com/macros/s/AKfycbykIyg0_xNts1NG-uT_cX6i1M8X4bpY9pTxMADsi_QFTJZgXORVrWjnxjYzm5tBhcWDpQ/exec';
+    var scriptUrl = 'https://script.google.com/macros/s/AKfycbziL0kcBkkZGcwfUb3k6iTgRLnWI9XGfZXc9kNz2ogYJGD9jbQjefVYQQwzS-3W73e5jw/exec';
     fetch(scriptUrl)
         .then(response => response.text())
         .then(csv => {
@@ -90,3 +90,4 @@ function updateTable(rows) {
 </script>
 </body>
 </html>
+
